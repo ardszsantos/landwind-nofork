@@ -7,21 +7,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <header class="bg-white px-20 py-6 h-20 w-full flex items-center justify-between">
+    <header class="bg-white px-8 py-4 h-20 w-full flex items-center justify-between">
       <div class="flex items-center">
-        <img src="/src/assets/images/landwind-logo.svg" alt="logo da landwind" />
+        <img src="/src/assets/images/landwind-logo.svg" alt="Landwind logo" class="h-8 w-auto" />
         <h1 class="text-gray-900 text-2xl font-semibold ml-3 mr-8">Landwind</h1>
         <nav class="hidden lg:flex gap-8">
-          <a href="">Company</a>
-          <a href="">Marketplace</a>
-          <a href="">Features</a>
-          <a href="">Team</a>
-          <a href="">Contact</a>
+          <a href="#" class="text-gray-600 hover:text-gray-900">Company</a>
+          <a href="#" class="text-gray-600 hover:text-gray-900">Marketplace</a>
+          <a href="#" class="text-gray-600 hover:text-gray-900">Features</a>
+          <a href="#" class="text-gray-600 hover:text-gray-900">Team</a>
+          <a href="#" class="text-gray-600 hover:text-gray-900">Contact</a>
         </nav>
       </div>
     
       <div class="flex items-center gap-4">
-        <button class="text-sm font-medium hidden lg:inline">Log In</button>
+        <button class="text-sm font-medium text-gray-600 hidden lg:inline">Log In</button>
         <button class="px-3 py-2 font-medium text-sm text-white bg-purple-600 rounded-lg hidden lg:inline">Get started</button>
         <button class="lg:hidden flex items-center" onclick="toggleMenu()">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -30,21 +30,27 @@
         </button>
       </div>
     
-      <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-white z-50 hidden flex-col items-center justify-center gap-8 transition-all duration-300 transform translate-y-full opacity-0">
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-white z-50 hidden flex-col items-center gap-6 pt-20 px-8 transition-all duration-300 transform translate-y-full opacity-0">
+        <!-- Close Button at the Top Right -->
         <button class="absolute top-5 right-5 text-gray-600" onclick="toggleMenu()">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
+        
+        <!-- Navigation Links Centered Vertically -->
         <nav class="flex flex-col items-center gap-6 text-lg font-medium text-gray-800">
-          <a href="">Company</a>
-          <a href="">Marketplace</a>
-          <a href="">Features</a>
-          <a href="">Team</a>
-          <a href="">Contact</a>
+          <a href="#" class="hover:text-gray-900">Company</a>
+          <a href="#" class="hover:text-gray-900">Marketplace</a>
+          <a href="#" class="hover:text-gray-900">Features</a>
+          <a href="#" class="hover:text-gray-900">Team</a>
+          <a href="#" class="hover:text-gray-900">Contact</a>
         </nav>
-        <button class="text-base font-medium">Log In</button>
-        <button class="px-6 py-3 font-medium text-base text-white bg-purple-600 rounded-lg">Get started</button>
+    
+        <!-- Full Width Buttons -->
+        <button class="w-full text-center text-base font-medium text-gray-600 py-2 mt-6">Log In</button>
+        <button class="w-full text-center px-6 py-3 font-medium text-base text-white bg-purple-600 rounded-lg">Get started</button>
       </div>
     </header>
     
@@ -52,7 +58,7 @@
     <!-- main section -->
     <main class="flex flex-col lg:flex-row gap-12 lg:gap-24 justify-center items-center px-6 lg:px-20 py-8 lg:py-16">
       <aside class="w-full lg:w-[736px] flex flex-col gap-6 py-8 lg:py-16">
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-6 ">
           <h1 class="leading-none text-3xl md:text-4xl lg:text-6xl font-black">Building digital products & brands.</h1>
           <h2 class="text-gray-500 text-base md:text-lg lg:text-xl font-normal">Here at flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</h2>
         </div>
@@ -62,7 +68,7 @@
         </div>
       </aside>
       
-      <div class="w-full lg:w-auto">
+      <div class="w-full lg:w-auto flex items-center justify-center">
         <img src="./assets/images/marketing-strategy 1.svg" alt="">
       </div>
     </main>
@@ -428,13 +434,17 @@
 
     <script>
       function toggleMenu() {
-        const menu = document.getElementById('mobileMenu');
-        if (menu.classList.contains('hidden')) {
-          menu.classList.remove('hidden', 'translate-y-full', 'opacity-0');
-          menu.classList.add('translate-y-0', 'opacity-100');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.remove('hidden');
+          setTimeout(() => {
+            mobileMenu.classList.remove('translate-y-full', 'opacity-0');
+          }, 10);
         } else {
-          menu.classList.add('translate-y-full', 'opacity-0');
-          setTimeout(() => menu.classList.add('hidden'), 300);
+          mobileMenu.classList.add('translate-y-full', 'opacity-0');
+          setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+          }, 300);
         }
       }
 
