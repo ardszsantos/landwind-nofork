@@ -7,14 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <header class=" bg-white px-20 py-6 h-20 w-full flex items-center justify-between">
+    <header class="bg-white px-20 py-6 h-20 w-full flex items-center justify-between">
       <div class="flex items-center">
-        <img
-          src="/src/assets/images/landwind-logo.svg"
-          alt="logo da landwind"
-        />
+        <img src="/src/assets/images/landwind-logo.svg" alt="logo da landwind" />
         <h1 class="text-gray-900 text-2xl font-semibold ml-3 mr-8">Landwind</h1>
-        <nav class="flex gap-8">
+        <nav class="hidden lg:flex gap-8">
           <a href="">Company</a>
           <a href="">Marketplace</a>
           <a href="">Features</a>
@@ -22,37 +19,62 @@
           <a href="">Contact</a>
         </nav>
       </div>
-      <div class="flex gap-4">
+    
+      <div class="flex items-center gap-4">
+        <button class="text-sm font-medium hidden lg:inline">Log In</button>
+        <button class="px-3 py-2 font-medium text-sm text-white bg-purple-600 rounded-lg hidden lg:inline">Get started</button>
+        <button class="lg:hidden flex items-center" onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    
+      <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-white bg-opacity-95 z-50 hidden flex-col items-center justify-center gap-8">
+        <button class="absolute top-5 right-5 text-gray-600" onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <nav class="flex flex-col items-center gap-6">
+          <a href="">Company</a>
+          <a href="">Marketplace</a>
+          <a href="">Features</a>
+          <a href="">Team</a>
+          <a href="">Contact</a>
+        </nav>
         <button class="text-sm font-medium">Log In</button>
         <button class="px-3 py-2 font-medium text-sm text-white bg-purple-600 rounded-lg">Get started</button>
       </div>
     </header>
+    
     <!-- main section -->
-    <main class="flex gap-24 justify-center items-center px-20 py-16">
-      <aside class="w-[736px] flex flex-col gap-6 py-16">
+    <main class="flex flex-col lg:flex-row gap-12 lg:gap-24 justify-center items-center px-6 lg:px-20 py-8 lg:py-16">
+      <aside class="w-full lg:w-[736px] flex flex-col gap-6 py-8 lg:py-16">
         <div class="flex flex-col gap-6">
-          <h1 class="leading-none text-6xl font-black">Building digital products & brands.</h1>
-          <h2 class="text-gray-500 text-xl font-normal">Here at flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</h2>
+          <h1 class="leading-none text-3xl md:text-4xl lg:text-6xl font-black">Building digital products & brands.</h1>
+          <h2 class="text-gray-500 text-base md:text-lg lg:text-xl font-normal">Here at flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</h2>
         </div>
-        <div class="flex gap-4 mt-4">
+        <div class="flex flex-col sm:flex-row gap-4 mt-4">
           <button class="flex items-center justify-center text-base font-medium py-3 px-5 bg-purple-600 text-white rounded-lg">Start 30 day free trial</button>
           <button class="flex items-center justify-center border border-gray-200 rounded-lg text-gray-800 text-base font-medium py-3 px-5">Pricing & FAQ</button>
         </div>
       </aside>
-      <!-- pc image -->      
-      <div>
+      
+      <div class="w-full lg:w-auto">
         <img src="./assets/images/marketing-strategy 1.svg" alt="">
       </div>
     </main>
-    <!-- Icons -->
-    <div class="flex gap-24 items-start justify-center px-20 pb-24 w-full h-[151px]">
-      <img class="h-10 w-32" src="./assets/images/Google.svg" alt="logo">
-      <img class="h-10 w-32" src="./assets/images/Microsoft.svg" alt="logo">
-      <img class="h-10 w-32" src="./assets/images/Spotify.svg" alt="logo">
-      <img class="h-10 w-32" src="./assets/images/Mailchimp.svg" alt="">
-      <img class="h-10 w-32" src="./assets/images/Airbnb.svg" alt="logo">
-      <img class="h-10 w-32" src="./assets/images/uber.svg" alt="logo">
+    
+    <div class="flex flex-wrap gap-8 lg:gap-24 items-center justify-center px-6 lg:px-20 pb-12 lg:pb-24 w-full h-[151px]">
+      <img class="h-10 w-24 lg:w-32" src="./assets/images/Google.svg" alt="logo">
+      <img class="h-10 w-24 lg:w-32" src="./assets/images/Microsoft.svg" alt="logo">
+      <img class="h-10 w-24 lg:w-32" src="./assets/images/Spotify.svg" alt="logo">
+      <img class="h-10 w-24 lg:w-32" src="./assets/images/Mailchimp.svg" alt="">
+      <img class="h-10 w-24 lg:w-32" src="./assets/images/Airbnb.svg" alt="logo">
+      <img class="h-10 w-24 lg:w-32" src="./assets/images/uber.svg" alt="logo">
     </div>
+    
 
     <section class="bg-gray-50 py-24 px-20 flex flex-col gap-[80px] justify-center items-center">
       <article class="flex ">
@@ -360,6 +382,13 @@
         </div>
       </div>
     </footer>
-    
+  
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+      }
+    </script>
   </body>
 </html>
